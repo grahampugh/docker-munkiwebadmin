@@ -17,7 +17,7 @@ build:
 
 run:
 	mkdir -p ${MUNKI_REPO_DIR}
-	docker run -d ${DOCKER_RUN_COMMON}
+	docker run --restart-always -d ${DOCKER_RUN_COMMON}
 
 clean:
 	docker stop $(NAME)
