@@ -131,6 +131,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )
@@ -177,6 +178,7 @@ INSTALLED_APPS = (
     'manifests',
     'inventory',
     'licenses',
+    'pkginfo',
     'admin_tools',
 )
 

@@ -1,7 +1,7 @@
-DOCKER_USER=groob
+DOCKER_USER=grahampugh
 ADMIN_PASS=pass
-MUNKI_REPO_DIR=/tmp/munki_repo
-MWA_PORT=80
+MUNKI_REPO_DIR=/usr/local/docker/munki_repo
+MWA_PORT=8000
 DB_NAME=munkiwebadmin
 DB_PASS=password
 DB_USER=admin
