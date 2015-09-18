@@ -26,7 +26,8 @@ RUN apt-get update && apt-get install -y \
   python-dev \
   libpq-dev
 
-RUN git clone https://github.com/grahampugh/munkiwebadmin.git $APP_DIR
+RUN git clone https://github.com/munki/munki.git /munki-tools
+RUN git clone -b pkginfo --single-branch https://github.com/grahampugh/munkiwebadmin.git $APP_DIR
 ADD django/requirements.txt $APP_DIR/
 RUN mkdir -p /etc/my_init.d
 RUN pip install -r $APP_DIR/requirements.txt
