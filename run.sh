@@ -7,14 +7,14 @@ python manage.py migrate --noinput
 python manage.py collectstatic --noinput
 
 if [ ! -z "$ADMIN_PASS" ] ; then
-  python manage.py update_admin_user --username=admin --password=$ADMIN_PASS
+    python manage.py update_admin_user --username=admin --password=$ADMIN_PASS
 else
-  python manage.py update_admin_user --username=admin --password=password
+    python manage.py update_admin_user --username=admin --password=password
 fi
 
 chown -R www-data:www-data $APP_DIR
 chmod go+x $APP_DIR
-mkdir -p /var/log/gunicorn
+# mkdir -p /var/log/gunicorn
 export PYTHONPATH=$PYTHONPATH:$APP_DIR
 export DJANGO_SETTINGS_MODULE='munkiwebadmin.settings'
 #export SECRET_KEY='no-so-secret' # Fix for your own site!
