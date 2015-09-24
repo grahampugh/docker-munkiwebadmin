@@ -1,5 +1,7 @@
 # Django settings for munkiwebadmin project.
 import os
+from system_settings import *
+from settings_import import ADMINS, TIME_ZONE, LANGUAGE_CODE, ALLOWED_HOSTS, DISPLAY_NAME, PLUGIN_ORDER
 
 USE_LDAP = False
 # LDAP authentication support
