@@ -31,7 +31,7 @@ RUN git clone https://github.com/munki/munki.git /munki-tools
 ADD django/requirements.txt $APP_DIR/
 RUN mkdir -p /etc/my_init.d
 RUN pip install -r $APP_DIR/requirements.txt
-ADD django/ $APP_DIR/munkiwebadmin/  #force
+ADD django/ $APP_DIR/munkiwebadmin/
 #ADD nginx/nginx-env.conf /etc/nginx/main.d/
 ADD nginx/munkiwebadmin.conf /etc/nginx/sites-enabled/munkiwebadmin.conf
 ADD run.sh /etc/my_init.d/run.sh
