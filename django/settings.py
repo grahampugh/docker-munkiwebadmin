@@ -177,7 +177,6 @@ INSTALLED_APPS = (
     'manifests',
     'inventory',
     'licenses',
-    'pkginfo',
     'admin_tools',
 )
 
