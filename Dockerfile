@@ -2,7 +2,7 @@
 # sure you lock down to a specific version, not to `latest`!
 # See https://github.com/phusion/passenger-docker/blob/master/Changelog.md for
 # a list of version numbers.
-FROM phusion/passenger-full:0.9.11
+FROM phusion/passenger-full:0.9.17
 MAINTAINER Victor Vrantchan <vrancean@gmail.com>
 
 # Set correct environment variables.
@@ -26,16 +26,15 @@ RUN apt-get update && apt-get install -y \
   python-dev \
   libpq-dev
 
-RUN git clone -b pkginfo --single-branch https://github.com/grahampugh/munkiwebadmin.git $APP_DIR
-# RUN git clone https://github.com/munki/munkiwebadmin.git $APP_DIR
+RUN git clone https://github.com/SteveKueng/munkiwebadmin.git $APP_DIR
 RUN git clone https://github.com/munki/munki.git /munki-tools
 ADD django/requirements.txt $APP_DIR/
 RUN mkdir -p /etc/my_init.d
 RUN pip install -r $APP_DIR/requirements.txt
-ADD django/ $APP_DIR/
-ADD nginx/nginx-env.conf /etc/nginx/main.d/
+ADD django/ $APP_DIR/munkiwebadmin/
+#ADD nginx/nginx-env.conf /etc/nginx/main.d/
 ADD nginx/munkiwebadmin.conf /etc/nginx/sites-enabled/munkiwebadmin.conf
-ADD .docker/run.sh /etc/my_init.d/run.sh
+ADD run.sh /etc/my_init.d/run.sh
 RUN rm -f /etc/service/nginx/down
 RUN rm -f /etc/nginx/sites-enabled/default
 RUN groupadd munki
