@@ -22,30 +22,25 @@ The official guide on [linking containers](https://docs.docker.com/userguide/doc
 ```bash
 $ docker pull postgres
 $ docker run --name="postgres-munkiwebadmin" -d postgres
-# Edit the setup.db scrip from the github repo to change the database name, user and password before running it.
+# Edit the setup.db script from the github repo to change the database name, user and password before running it.
 $ ./setup_db.sh
 ```
 
 #Image Creation
-```$ docker build -t="groob/munkiwebadmin" .```
+```$ docker build -t="stevekueng/munkiwebadmin" .```
 
 #Running the MunkiWebAdmin Container
 
 ```bash
 $ docker run -d --name="munkiwebadmin" \
-  -p 80:80 \
+  -p 8000:8000 \
   --link postgres-munkiwebadmin:db \
   -v /tmp/munki_repo:/munki_repo \
   -e ADMIN_PASS=pass \
   -e DB_NAME=munkiwebadmin \
   -e DB_USER=admin \
   -e DB_PASS=password \
-  groob/munkiwebadmin
+  stevekueng/munkiwebadmin
 ```
 This assumes your Munki repo is mounted at /tmp/munki_repo.
 
-#TODO
-* add support for logging
-* add support for sqlite and mysql
-* add support for SSL
-* add support for git
