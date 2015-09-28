@@ -1,7 +1,7 @@
 docker-munkiwebadmin
 ==========
 
-This Docker container runs [MunkiWebAdmin](https://code.google.com/p/munki/wiki/MunkiWebAdmin).
+This Docker container runs [Steve Kueng's fork of MunkiWebAdmin](https://github.com/SteveKueng/munkiwebadmin).
 The container expects a linked PostgreSQL database container and that your munki repo is mounted
 in /munki_repo
 
